@@ -1,6 +1,6 @@
 ﻿namespace PrisonersDilemma
 {
-    internal sealed class Ruler: IRuler
+    internal sealed class Ruler : IRuler
     {
         private readonly Dictionary<(SuspectAction Suspect1, SuspectAction Suspect2), (int Suspect1, int Suspect2)> Sentence = new()
         {
@@ -16,7 +16,23 @@
             {
                 return Sentence[interrogatoryResult];
             }
-            throw new ArgumentException("This interrogatory result is not managed yet.", nameof(interrogatoryResult));
+            throw new ArgumentException($"This interrogatory result is not managed yet. [{interrogatoryResult}]", nameof(interrogatoryResult));
+        }
+
+        public Winner GetWinner(IEnumerable<(int Suspect1, int Suspect2)> scoreHistory)
+        {
+            var suspect1Score = scoreHistory.Sum(x => x.Suspect1);
+            var suspect2Score = scoreHistory.Sum(x => x.Suspect2);
+
+            if (suspect1Score > suspect2Score)
+            {
+                return Winner.One;
+            }
+            if (suspect2Score > suspect1Score)
+            {
+                return Winner.Two;
+            }
+            return Winner.Null;
         }
     }
 }

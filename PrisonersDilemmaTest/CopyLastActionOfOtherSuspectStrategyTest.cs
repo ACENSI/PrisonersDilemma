@@ -4,11 +4,11 @@ namespace PrisonersDilemmaTest
 {
     public class CopyLastActionOfOtherSuspectStrategyTest
     {
-        private IStrategy _Strategy;
+        private readonly IStrategy _strategy;
 
         public CopyLastActionOfOtherSuspectStrategyTest()
         {
-            _Strategy = new CopyLastActionOfOtherSuspectStrategy();
+            _strategy = new CopyLastActionOfOtherSuspectStrategy();
         }
 
         [Theory]
@@ -16,8 +16,8 @@ namespace PrisonersDilemmaTest
         [InlineData(SuspectAction.StaysSilent)]
         internal void GenerateActionWithLastActionOfOtherSuspectIs(SuspectAction expectedResult)
         {
-            var actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.StaysSilent, expectedResult };
-            var result = _Strategy.GetAction(actionsOfOtherSuspect);
+            List<SuspectAction> actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.StaysSilent, expectedResult };
+            SuspectAction result = _strategy.GetAction(actionsOfOtherSuspect);
 
             Assert.Equal(expectedResult, result);
         }

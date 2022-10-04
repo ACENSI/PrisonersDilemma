@@ -3,15 +3,15 @@ using PrisonersDilemma;
 
 namespace PrisonersDilemmaTest
 {
-    public class RandomStrategyTest
+    public class RandomStrategy0To1Test
     {
-        private Mock<IRandomProxy> _randomProxy;
-        private IStrategy _randomStrategy;
+        private readonly Mock<IRandomProxy> _randomProxy;
+        private readonly IStrategy _randomStrategy;
 
-        public RandomStrategyTest()
+        public RandomStrategy0To1Test()
         {
             _randomProxy = new Mock<IRandomProxy>();
-            _randomStrategy = new RandomStrategy(_randomProxy.Object);
+            _randomStrategy = new RandomStrategy0To1(_randomProxy.Object);
         }
 
         [Theory]
@@ -21,7 +21,7 @@ namespace PrisonersDilemmaTest
         {
             _randomProxy.Setup(x => x.Next(0, 1)).Returns(randomResult);
 
-            var result = _randomStrategy.GetAction(new List<SuspectAction>());
+            SuspectAction result = _randomStrategy.GetAction(new List<SuspectAction>());
 
             Assert.Equal(actionExpected, result);
         }

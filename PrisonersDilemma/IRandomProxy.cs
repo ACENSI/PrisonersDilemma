@@ -2,6 +2,6 @@
 {
     internal interface IRandomProxy
     {
-        int Next(int v1, int v2);
+        int Next(int minValue, int maxValue);
     }
 }

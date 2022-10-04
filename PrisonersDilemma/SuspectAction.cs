@@ -1,8 +1,6 @@
-﻿
-
-namespace PrisonersDilemma
+﻿namespace PrisonersDilemma
 {
-    
+
     internal enum SuspectAction
     {
         StaysSilent,

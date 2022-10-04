@@ -4,18 +4,18 @@ namespace PrisonersDilemmaTest
 {
     public class AlwaysStaySilentStrategyTest
     {
-        private IStrategy _Strategy;
+        private readonly IStrategy _strategy;
 
         public AlwaysStaySilentStrategyTest()
         {
-            _Strategy = new AlwaysStaySilentStrategy();
+            _strategy = new AlwaysStaySilentStrategy();
         }
 
         [Fact]
         public void GenerateAction()
         {
-            
-            var result = _Strategy.GetAction(new List<SuspectAction>());
+
+            SuspectAction result = _strategy.GetAction(new List<SuspectAction>());
 
             Assert.Equal(SuspectAction.StaysSilent, result);
         }

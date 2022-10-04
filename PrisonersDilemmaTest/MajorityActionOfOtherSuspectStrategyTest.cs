@@ -4,18 +4,18 @@ namespace PrisonersDilemmaTest
 {
     public class MajorityActionOfOtherSuspectStrategyTest
     {
-        private IStrategy _Strategy;
+        private readonly IStrategy _strategy;
 
         public MajorityActionOfOtherSuspectStrategyTest()
         {
-            _Strategy = new MajorityActionOfOtherSuspectStrategy();
+            _strategy = new MajorityActionOfOtherSuspectStrategy();
         }
 
         [Fact]
         public void GenerateWithMajorityOfStaysSilent()
         {
-            var actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.StaysSilent, SuspectAction.StaysSilent, SuspectAction.Betrays };
-            var result = _Strategy.GetAction(actionsOfOtherSuspect);
+            List<SuspectAction> actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.StaysSilent, SuspectAction.StaysSilent, SuspectAction.Betrays };
+            SuspectAction result = _strategy.GetAction(actionsOfOtherSuspect);
 
             Assert.Equal(SuspectAction.StaysSilent, result);
         }
@@ -23,8 +23,8 @@ namespace PrisonersDilemmaTest
         [Fact]
         public void GenerateWithMajorityOfBetrays()
         {
-            var actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.Betrays, SuspectAction.Betrays, SuspectAction.StaysSilent };
-            var result = _Strategy.GetAction(actionsOfOtherSuspect);
+            List<SuspectAction> actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.Betrays, SuspectAction.Betrays, SuspectAction.StaysSilent };
+            SuspectAction result = _strategy.GetAction(actionsOfOtherSuspect);
 
             Assert.Equal(SuspectAction.Betrays, result);
         }
@@ -32,8 +32,8 @@ namespace PrisonersDilemmaTest
         [Fact]
         public void GenerateWithEquality()
         {
-            var actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.Betrays, SuspectAction.StaysSilent, SuspectAction.StaysSilent, SuspectAction.Betrays };
-            var result = _Strategy.GetAction(actionsOfOtherSuspect);
+            List<SuspectAction> actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.Betrays, SuspectAction.StaysSilent, SuspectAction.StaysSilent, SuspectAction.Betrays };
+            SuspectAction result = _strategy.GetAction(actionsOfOtherSuspect);
 
             Assert.Equal(SuspectAction.StaysSilent, result);
         }

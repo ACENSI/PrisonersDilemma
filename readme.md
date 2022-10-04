@@ -22,3 +22,8 @@ TDD
  . look if you can improved it
 
  2- Create stategies
+ 3- Create Confrontation
+ 4- create Game
+ 5- create Displayer
+ 6- create Main
+ 7- custum random for game to be funnier

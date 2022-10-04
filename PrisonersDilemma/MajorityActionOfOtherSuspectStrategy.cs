@@ -1,13 +1,11 @@
-﻿using PrisonersDilemma;
-
-namespace PrisonersDilemmaTest
+﻿namespace PrisonersDilemma
 {
     internal class MajorityActionOfOtherSuspectStrategy : IStrategy
     {
         public SuspectAction GetAction(IEnumerable<SuspectAction> actionsOfOtherSuspect)
         {
-            var betraysCount = actionsOfOtherSuspect.Count(x=>x==SuspectAction.Betrays);
-            var staysSilentCount = actionsOfOtherSuspect.Count() - betraysCount;
+            int betraysCount = actionsOfOtherSuspect.Count(x => x == SuspectAction.Betrays);
+            int staysSilentCount = actionsOfOtherSuspect.Count() - betraysCount;
 
             if (betraysCount > staysSilentCount)
             {
