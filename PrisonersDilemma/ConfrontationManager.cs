@@ -29,7 +29,7 @@
             {
                 return strategyManagment[(suspect, round)].GetAction(actionsOfOtherSuspect);
             }
-            throw new ArgumentException($"This Confrontation is not managed yet. [{(suspect, round)}]", $"{nameof(suspect)}, {nameof(round)}");
+            throw new ArgumentException($"This Confrontation is not managed yet. param {nameof(suspect)} = [{suspect}] and {nameof(round)}[{round}]");
         }
     }
 }

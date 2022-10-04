@@ -2,7 +2,7 @@
 {
     internal class Displayer : IDisplayer
     {
-        private IWriterProxy _writer;
+        private readonly IWriterProxy _writer;
 
         public Displayer(IWriterProxy writer)
         {

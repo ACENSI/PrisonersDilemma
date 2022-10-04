@@ -2,6 +2,6 @@
 {
     internal interface IConfrontationManager
     {
-        SuspectAction GetResultForSuspectAndRound(Suspect one, int round, IEnumerable<SuspectAction> actionsOfOtherSuspect);
+        SuspectAction GetResultForSuspectAndRound(Suspect suspect, int round, IEnumerable<SuspectAction> actionsOfOtherSuspect);
     }
 }
