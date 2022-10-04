@@ -1,6 +1,5 @@
 
-[![CI](https://github.com/landdragon/PrisonersDilemma/actions/workflows/Test.yml/badge.svg?branch=master)](https://github.com/landdragon/PrisonersDilemma/actions/workflows/Test.yml)
-[![Coverage Status](https://coveralls.io/repos/github/landdragon/PrisonersDilemma/badge.svg?branch=master)](https://coveralls.io/github/landdragon/PrisonersDilemma?branch=master)
+[![CI](https://github.com/landdragon/PrisonersDilemma/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/landdragon/PrisonersDilemma/actions/workflows/dotnet.yml)
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=landdragon_PrisonersDilemma&metric=coverage)](https://sonarcloud.io/summary/new_code?id=landdragon_PrisonersDilemma)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=landdragon_PrisonersDilemma&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=landdragon_PrisonersDilemma)
@@ -15,15 +14,14 @@
 
 TDD
 
-1- manage the rule calculation
- .	create a test for no one talk
- . implement it
- . do the same for all the other rules
- . look if you can improved it
-
- 2- Create stategies
- 3- Create Confrontation
- 4- create Game
- 5- create Displayer
- 6- create Main
- 7- custum random for game to be funnier
+1. manage the rule calculation
+    * create a test for no one talk
+    * implement it
+    * do the same for all the other rules
+    * look if you can improved it
+2. Create stategies
+3. Create Confrontation
+4. create Game
+5. create Displayer
+6. create Main
+7. custum random for game to be funnier
