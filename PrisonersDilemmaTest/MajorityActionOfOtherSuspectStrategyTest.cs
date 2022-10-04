@@ -14,28 +14,28 @@ namespace PrisonersDilemmaTest
         [Fact]
         public void GenerateWithMajorityOfStaysSilent()
         {
-            var actionsOfOtherSuspect = new List<ActionEnum> { ActionEnum.StaysSilent, ActionEnum.StaysSilent, ActionEnum.Betrays };
+            var actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.StaysSilent, SuspectAction.StaysSilent, SuspectAction.Betrays };
             var result = _Strategy.GetAction(actionsOfOtherSuspect);
 
-            Assert.Equal(ActionEnum.StaysSilent, result);
+            Assert.Equal(SuspectAction.StaysSilent, result);
         }
 
         [Fact]
         public void GenerateWithMajorityOfBetrays()
         {
-            var actionsOfOtherSuspect = new List<ActionEnum> { ActionEnum.Betrays, ActionEnum.Betrays, ActionEnum.StaysSilent };
+            var actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.Betrays, SuspectAction.Betrays, SuspectAction.StaysSilent };
             var result = _Strategy.GetAction(actionsOfOtherSuspect);
 
-            Assert.Equal(ActionEnum.Betrays, result);
+            Assert.Equal(SuspectAction.Betrays, result);
         }
 
         [Fact]
         public void GenerateWithEquality()
         {
-            var actionsOfOtherSuspect = new List<ActionEnum> { ActionEnum.Betrays, ActionEnum.StaysSilent, ActionEnum.StaysSilent, ActionEnum.Betrays };
+            var actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.Betrays, SuspectAction.StaysSilent, SuspectAction.StaysSilent, SuspectAction.Betrays };
             var result = _Strategy.GetAction(actionsOfOtherSuspect);
 
-            Assert.Equal(ActionEnum.StaysSilent, result);
+            Assert.Equal(SuspectAction.StaysSilent, result);
         }
     }
 }

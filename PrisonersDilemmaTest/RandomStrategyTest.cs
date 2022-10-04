@@ -15,13 +15,13 @@ namespace PrisonersDilemmaTest
         }
 
         [Theory]
-        [InlineData(0, ActionEnum.StaysSilent)]
-        [InlineData(1, ActionEnum.Betrays)]
-        internal void GenerateRandomAction(int randomResult, ActionEnum actionExpected)
+        [InlineData(0, SuspectAction.StaysSilent)]
+        [InlineData(1, SuspectAction.Betrays)]
+        internal void GenerateRandomAction(int randomResult, SuspectAction actionExpected)
         {
             _randomProxy.Setup(x => x.Next(0, 1)).Returns(randomResult);
 
-            var result = _randomStrategy.GetAction(new List<ActionEnum>());
+            var result = _randomStrategy.GetAction(new List<SuspectAction>());
 
             Assert.Equal(actionExpected, result);
         }

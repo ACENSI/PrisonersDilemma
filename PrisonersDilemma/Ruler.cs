@@ -2,15 +2,15 @@
 {
     internal sealed class Ruler: IRuler
     {
-        private readonly Dictionary<(ActionEnum Suspect1, ActionEnum Suspect2), (int Suspect1, int Suspect2)> Sentence = new()
+        private readonly Dictionary<(SuspectAction Suspect1, SuspectAction Suspect2), (int Suspect1, int Suspect2)> Sentence = new()
         {
-            {(ActionEnum.StaysSilent, ActionEnum.StaysSilent), (-1, -1) },
-            {(ActionEnum.Betrays, ActionEnum.StaysSilent), (0, -10) },
-            {(ActionEnum.StaysSilent, ActionEnum.Betrays), (-10, 0) },
-            {(ActionEnum.Betrays, ActionEnum.Betrays), (-5, -5) },
+            {(SuspectAction.StaysSilent, SuspectAction.StaysSilent), (-1, -1) },
+            {(SuspectAction.Betrays, SuspectAction.StaysSilent), (0, -10) },
+            {(SuspectAction.StaysSilent, SuspectAction.Betrays), (-10, 0) },
+            {(SuspectAction.Betrays, SuspectAction.Betrays), (-5, -5) },
         };
 
-        public (int Suspect1, int Suspect2) CalculateSentence((ActionEnum Suspect1, ActionEnum Suspect2) interrogatoryResult)
+        public (int Suspect1, int Suspect2) CalculateSentence((SuspectAction Suspect1, SuspectAction Suspect2) interrogatoryResult)
         {
             if (Sentence.ContainsKey(interrogatoryResult))
             {

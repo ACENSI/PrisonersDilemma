@@ -12,11 +12,11 @@ namespace PrisonersDilemmaTest
         }
 
         [Theory]
-        [InlineData(ActionEnum.Betrays)]
-        [InlineData(ActionEnum.StaysSilent)]
-        internal void GenerateActionWithLastActionOfOtherSuspectIs(ActionEnum expectedResult)
+        [InlineData(SuspectAction.Betrays)]
+        [InlineData(SuspectAction.StaysSilent)]
+        internal void GenerateActionWithLastActionOfOtherSuspectIs(SuspectAction expectedResult)
         {
-            var actionsOfOtherSuspect = new List<ActionEnum> { ActionEnum.StaysSilent, expectedResult };
+            var actionsOfOtherSuspect = new List<SuspectAction> { SuspectAction.StaysSilent, expectedResult };
             var result = _Strategy.GetAction(actionsOfOtherSuspect);
 
             Assert.Equal(expectedResult, result);

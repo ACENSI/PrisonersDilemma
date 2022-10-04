@@ -15,9 +15,9 @@ namespace PrisonersDilemmaTest
         public void GenerateAction()
         {
             
-            var result = _Strategy.GetAction(new List<ActionEnum>());
+            var result = _Strategy.GetAction(new List<SuspectAction>());
 
-            Assert.Equal(ActionEnum.StaysSilent, result);
+            Assert.Equal(SuspectAction.StaysSilent, result);
         }
     }
 }

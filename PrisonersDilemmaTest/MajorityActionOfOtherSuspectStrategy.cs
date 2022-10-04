@@ -4,20 +4,20 @@ namespace PrisonersDilemmaTest
 {
     internal class MajorityActionOfOtherSuspectStrategy : IStrategy
     {
-        public ActionEnum GetAction(IEnumerable<ActionEnum> actionsOfOtherSuspect)
+        public SuspectAction GetAction(IEnumerable<SuspectAction> actionsOfOtherSuspect)
         {
-            var betraysCount = actionsOfOtherSuspect.Count(x=>x==ActionEnum.Betrays);
+            var betraysCount = actionsOfOtherSuspect.Count(x=>x==SuspectAction.Betrays);
             var staysSilentCount = actionsOfOtherSuspect.Count() - betraysCount;
 
             if (betraysCount > staysSilentCount)
             {
-                return ActionEnum.Betrays;
+                return SuspectAction.Betrays;
             }
             if (betraysCount < staysSilentCount)
             {
-                return ActionEnum.StaysSilent;
+                return SuspectAction.StaysSilent;
             }
-            return ActionEnum.StaysSilent;
+            return SuspectAction.StaysSilent;
         }
     }
 }

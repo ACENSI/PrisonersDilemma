@@ -14,7 +14,7 @@ namespace PrisonersDilemmaTest
         [Fact]
         public void BothSuspectStaysSilent()
         {
-            (ActionEnum Suspect1, ActionEnum Suspect2) interrogatoryResult = (ActionEnum.StaysSilent, ActionEnum.StaysSilent);
+            (SuspectAction Suspect1, SuspectAction Suspect2) interrogatoryResult = (SuspectAction.StaysSilent, SuspectAction.StaysSilent);
             var sentence = _ruler.CalculateSentence(interrogatoryResult);
 
             Assert.Equal(-1, sentence.Suspect1);
@@ -23,7 +23,7 @@ namespace PrisonersDilemmaTest
         [Fact]
         public void Suspect1BetraysButSuspect2StaysSilent()
         {
-            (ActionEnum Suspect1, ActionEnum Suspect2) interrogatoryResult = (ActionEnum.Betrays, ActionEnum.StaysSilent);
+            (SuspectAction Suspect1, SuspectAction Suspect2) interrogatoryResult = (SuspectAction.Betrays, SuspectAction.StaysSilent);
             var sentence = _ruler.CalculateSentence(interrogatoryResult);
 
             Assert.Equal(0, sentence.Suspect1);
@@ -33,7 +33,7 @@ namespace PrisonersDilemmaTest
         [Fact]
         public void Suspect2BetraysButSuspect1SayNothing()
         {
-            (ActionEnum Suspect1, ActionEnum Suspect2) interrogatoryResult = (ActionEnum.StaysSilent, ActionEnum.Betrays);
+            (SuspectAction Suspect1, SuspectAction Suspect2) interrogatoryResult = (SuspectAction.StaysSilent, SuspectAction.Betrays);
             var sentence = _ruler.CalculateSentence(interrogatoryResult);
 
             Assert.Equal(-10, sentence.Suspect1);
@@ -43,7 +43,7 @@ namespace PrisonersDilemmaTest
         [Fact]
         public void BothSuspectBetrays()
         {
-            (ActionEnum Suspect1, ActionEnum Suspect2) interrogatoryResult = (ActionEnum.Betrays, ActionEnum.Betrays);
+            (SuspectAction Suspect1, SuspectAction Suspect2) interrogatoryResult = (SuspectAction.Betrays, SuspectAction.Betrays);
             var sentence = _ruler.CalculateSentence(interrogatoryResult);
 
             Assert.Equal(-5, sentence.Suspect1);

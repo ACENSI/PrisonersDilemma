@@ -2,9 +2,9 @@
 {
     internal class AlwaysStaySilentStrategy : IStrategy
     {
-        public ActionEnum GetAction(IEnumerable<ActionEnum> actionsOfOtherSuspect)
+        public SuspectAction GetAction(IEnumerable<SuspectAction> actionsOfOtherSuspect)
         {
-            return ActionEnum.StaysSilent;
+            return SuspectAction.StaysSilent;
         }
     }
 }

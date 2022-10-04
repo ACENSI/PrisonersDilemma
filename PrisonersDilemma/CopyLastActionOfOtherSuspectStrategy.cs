@@ -2,7 +2,7 @@
 {
     internal class CopyLastActionOfOtherSuspectStrategy : IStrategy
     {
-        public ActionEnum GetAction(IEnumerable<ActionEnum> actionsOfOtherSuspect)
+        public SuspectAction GetAction(IEnumerable<SuspectAction> actionsOfOtherSuspect)
         {
             return actionsOfOtherSuspect.LastOrDefault();
         }

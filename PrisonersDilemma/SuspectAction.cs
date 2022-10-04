@@ -3,7 +3,7 @@
 namespace PrisonersDilemma
 {
     
-    internal enum ActionEnum
+    internal enum SuspectAction
     {
         StaysSilent,
         Betrays
