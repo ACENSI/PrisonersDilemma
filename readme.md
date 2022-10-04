@@ -20,3 +20,5 @@ TDD
  . implement it
  . do the same for all the other rules
  . look if you can improved it
+
+ 2- Create stategies

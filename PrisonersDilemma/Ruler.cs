@@ -2,7 +2,7 @@
 {
     internal sealed class Ruler: IRuler
     {
-        Dictionary<(ActionEnum Suspect1, ActionEnum Suspect2), (int Suspect1, int Suspect2)> Sentence = new()
+        private readonly Dictionary<(ActionEnum Suspect1, ActionEnum Suspect2), (int Suspect1, int Suspect2)> Sentence = new()
         {
             {(ActionEnum.StaysSilent, ActionEnum.StaysSilent), (-1, -1) },
             {(ActionEnum.Betrays, ActionEnum.StaysSilent), (0, -10) },
