@@ -1,6 +1,6 @@
 ﻿namespace PrisonersDilemma
 {
-    internal class Ruler
+    internal sealed class Ruler: IRuler
     {
         Dictionary<(ActionEnum Suspect1, ActionEnum Suspect2), (int Suspect1, int Suspect2)> Sentence = new()
         {
@@ -10,7 +10,7 @@
             {(ActionEnum.Betrays, ActionEnum.Betrays), (-5, -5) },
         };
 
-        internal (int Suspect1, int Suspect2) CalculateSentence((ActionEnum Suspect1, ActionEnum Suspect2) interrogatoryResult)
+        public (int Suspect1, int Suspect2) CalculateSentence((ActionEnum Suspect1, ActionEnum Suspect2) interrogatoryResult)
         {
             if (Sentence.ContainsKey(interrogatoryResult))
             {
