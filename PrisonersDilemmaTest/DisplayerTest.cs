@@ -1,3 +1,4 @@
+using Microsoft.VisualStudio.TestPlatform.CoreUtilities.Extensions;
 using Moq;
 using PrisonersDilemma;
 using System.Reflection;
@@ -13,6 +14,7 @@ namespace PrisonersDilemmaTest
 
         public DisplayerTest()
         {
+            //fixed:linux/windows 
             _message = new StringBuilder();
             _writerProxy = new Mock<IWriterProxy>();
             _writerProxy.Setup(x => x.WriteLine(It.IsAny<string>())).Callback<string>((x) => _message.AppendLine(x));
@@ -22,11 +24,11 @@ namespace PrisonersDilemmaTest
         [Fact]
         public void DisplaySuspectsActions()
         {
-            string messageExpected =
-                @"Actions :
-Suspect1 : [StaysSilent, Betrays, StaysSilent, StaysSilent, Betrays, StaysSilent]
-Suspect2 : [StaysSilent, Betrays, Betrays, StaysSilent, StaysSilent, StaysSilent]
-";
+            //fixed:linux/windows
+            string messageExpected = new StringBuilder().AppendLine(@"Actions :").
+                AppendLine(@"Suspect1 : [StaysSilent, Betrays, StaysSilent, StaysSilent, Betrays, StaysSilent]").
+                AppendLine("Suspect2 : [StaysSilent, Betrays, Betrays, StaysSilent, StaysSilent, StaysSilent]").ToString();
+
             var suspectOneHistory = new List<SuspectAction>
             {
                 SuspectAction.StaysSilent,
@@ -52,11 +54,10 @@ Suspect2 : [StaysSilent, Betrays, Betrays, StaysSilent, StaysSilent, StaysSilent
         [Fact]
         public void DisplaySuspectsScores()
         {
-            string messageExpected =
-                @"Scores :
-Suspect1 : [-1, -5, -10, 0, -5, -1]
-Suspect2 : [-1, -5, 0, -10, -5, -1]
-";
+            //fixed:linux/windows
+            string messageExpected = new StringBuilder().AppendLine(@"Scores :").
+                AppendLine(@"Suspect1 : [-1, -5, -10, 0, -5, -1]").
+                AppendLine(@"Suspect2 : [-1, -5, 0, -10, -5, -1]").ToString();
 
             var scoreHistory = new List<(int Suspect1, int Suspect2)>
             {
@@ -74,9 +75,8 @@ Suspect2 : [-1, -5, 0, -10, -5, -1]
         [Fact]
         public void DisplayWinnerNull()
         {
-            string messageExpected =
-                @"Winner is Null
-";
+            //fixed:linux/windows
+            string messageExpected = new StringBuilder().AppendLine(@"Winner is Null").ToString();
 
             _displayer.DisplayWinner(Winner.Null);
             Assert.Equal(messageExpected, _message.ToString());
@@ -85,9 +85,8 @@ Suspect2 : [-1, -5, 0, -10, -5, -1]
         [Fact]
         public void DisplayWinnerOne()
         {
-            string messageExpected =
-                @"Winner is Suspect One
-";
+            //fixed:linux/windows
+            string messageExpected = new StringBuilder().AppendLine(@"Winner is Suspect One").ToString();
 
             _displayer.DisplayWinner(Winner.One);
             Assert.Equal(messageExpected, _message.ToString());
@@ -96,9 +95,8 @@ Suspect2 : [-1, -5, 0, -10, -5, -1]
         [Fact]
         public void DisplayWinnerTwo()
         {
-            string messageExpected =
-                @"Winner is Suspect Two
-";
+            //fixed:linux/windows
+            string messageExpected = new StringBuilder().AppendLine(@"Winner is Suspect Two").ToString();
 
             _displayer.DisplayWinner(Winner.Two);
             Assert.Equal(messageExpected, _message.ToString());
